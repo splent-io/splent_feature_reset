@@ -1,0 +1,1 @@
+from splent_framework.fixtures.fixtures import *

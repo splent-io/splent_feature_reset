@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=80.3.1", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "splent_feature_reset"
+version = "0.0.1"
+requires-python = ">=3.12"
+authors = [{ name = "DiversoLab", email = "diversolab@us.es" }]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
