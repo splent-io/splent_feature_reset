@@ -1,4 +1,4 @@
-from splent_feature_reset.models import ResetToken
+from splent_io.splent_feature_reset.models import ResetToken
 from splent_framework.repositories.BaseRepository import BaseRepository
 
 

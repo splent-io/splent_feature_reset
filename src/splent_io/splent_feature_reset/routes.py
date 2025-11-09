@@ -1,7 +1,7 @@
 from flask import flash, redirect, render_template, request, url_for
-from splent_feature_auth.decorators import guest_required
-from splent_feature_reset import reset_bp
-from splent_feature_reset.services import ResetService
+from splent_io.splent_feature_auth.decorators import guest_required
+from splent_io.splent_feature_reset import reset_bp
+from splent_io.splent_feature_reset.services import ResetService
 
 reset_service = ResetService()
 
