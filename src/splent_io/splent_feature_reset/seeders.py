@@ -2,9 +2,7 @@ from splent_framework.seeders.BaseSeeder import BaseSeeder
 
 
 class ResetSeeder(BaseSeeder):
-
     def run(self):
-
         data = [
             # Create any Model object you want to make seed
         ]

@@ -10,7 +10,6 @@ reset_service = ResetService()
 @guest_required
 def forgot():
     if request.method == "POST":
-
         email = request.form["email"]
         token = reset_service.send_reset_password_mail(email=email)
         reset_service.add_token(token=token)
@@ -36,7 +35,6 @@ def forgot():
 @reset_bp.route("/reset/password/<token>", methods=["GET", "POST"])
 @guest_required
 def reset_password(token):
-
     reset_service.check_valid_token(token)
     email = reset_service.get_email_by_token(token)
 

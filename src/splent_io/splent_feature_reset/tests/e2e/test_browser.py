@@ -6,7 +6,6 @@ from splent_framework.selenium.common import initialize_driver, close_driver
 
 
 def test_reset_index():
-
     driver = initialize_driver()
 
     try:
@@ -19,14 +18,12 @@ def test_reset_index():
         time.sleep(4)
 
         try:
-
             pass
 
         except NoSuchElementException:
             raise AssertionError("Test failed!")
 
     finally:
-
         # Close the browser
         close_driver(driver)
 

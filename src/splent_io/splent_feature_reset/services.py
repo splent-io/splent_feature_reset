@@ -11,7 +11,6 @@ from splent_io.splent_feature_auth.models import User
 from splent_io.splent_feature_reset.models import ResetToken
 from splent_io.splent_feature_reset.repositories import ResetRepository
 from splent_framework.services.BaseService import BaseService
-from flask import current_app
 from werkzeug.security import generate_password_hash
 
 
@@ -23,7 +22,6 @@ class ResetService(BaseService):
         return URLSafeTimedSerializer(current_app.config["SECRET_KEY"])
 
     def send_reset_password_mail(self, email: str) -> str:
-
         token = None
         mail_service = current_app.mail_service
 
