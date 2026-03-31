@@ -32,7 +32,9 @@ class ResetService(BaseService):
 
         mail_service = current_app.extensions.get("splent_mail_service")
         if not mail_service:
-            raise RuntimeError("Mail service not available. Is splent_feature_mail installed?")
+            raise RuntimeError(
+                "Mail service not available. Is splent_feature_mail installed?"
+            )
         mail_service.send_email("Password Reset Request", [email], body)
 
         return token

@@ -12,8 +12,13 @@ register_template_hook("auth.signup.form_footer", inject_reset_link)
 
 # ── Script hooks ─────────────────────────────────────────────────────────────
 
+
 def reset_scripts():
-    return '<script src="' + url_for('reset.assets', subfolder='dist', filename='reset.bundle.js') + '"></script>'
+    return (
+        '<script src="'
+        + url_for("reset.assets", subfolder="dist", filename="reset.bundle.js")
+        + '"></script>'
+    )
 
 
 register_template_hook("layout.scripts", reset_scripts)

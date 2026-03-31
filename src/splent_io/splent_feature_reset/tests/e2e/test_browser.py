@@ -19,4 +19,7 @@ def browser():
 def test_forgot_page_loads(browser):
     host = get_host_for_selenium_testing()
     browser.get(f"{host}/reset/forgot")
-    assert "forgot" in browser.page_source.lower() or "email" in browser.page_source.lower()
+    assert (
+        "forgot" in browser.page_source.lower()
+        or "email" in browser.page_source.lower()
+    )
