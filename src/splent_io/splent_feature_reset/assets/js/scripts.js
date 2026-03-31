@@ -1,5 +1,3 @@
-console.log("Hi, I am a script loaded from reset module");
-
 document.addEventListener('DOMContentLoaded', function () {
     var form = document.getElementById('reset_password_form');
     if (form) {

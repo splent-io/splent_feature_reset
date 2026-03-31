@@ -1,32 +1,22 @@
-from selenium.common.exceptions import NoSuchElementException
-import time
+"""
+End-to-end tests for splent_feature_reset.
 
+Run with:  splent feature:test splent_feature_reset --e2e
+"""
+
+import pytest
 from splent_framework.environment.host import get_host_for_selenium_testing
 from splent_framework.selenium.common import initialize_driver, close_driver
 
 
-def test_reset_index():
+@pytest.fixture()
+def browser():
     driver = initialize_driver()
-
-    try:
-        host = get_host_for_selenium_testing()
-
-        # Open the index page
-        driver.get(f"{host}/reset")
-
-        # Wait a little while to make sure the page has loaded completely
-        time.sleep(4)
-
-        try:
-            pass
-
-        except NoSuchElementException:
-            raise AssertionError("Test failed!")
-
-    finally:
-        # Close the browser
-        close_driver(driver)
+    yield driver
+    close_driver(driver)
 
 
-# Call the test function
-test_reset_index()
+def test_forgot_page_loads(browser):
+    host = get_host_for_selenium_testing()
+    browser.get(f"{host}/reset/forgot")
+    assert "forgot" in browser.page_source.lower() or "email" in browser.page_source.lower()
