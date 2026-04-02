@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "splent_feature_reset"
-version = "1.3.2"
+version = "1.3.3"
 requires-python = ">=3.13"
 authors = [{ name = "DiversoLab", email = "diversolab@us.es" }]
 
@@ -23,7 +23,7 @@ description = "Password reset feature: forgot password and token-based reset flo
 
 [tool.splent.contract.provides]
 routes     = ["/reset/forgot", "/reset/password/<token>"]
-blueprints = ["reset_bp"]
+blueprints = []
 models     = ["ResetToken"]
 commands   = []
 hooks      = ["auth.login.form_footer", "auth.signup.form_footer", "layout.scripts"]
@@ -39,7 +39,7 @@ signals  = []
 
 [tool.splent.contract.extensible]
 services  = ["ResetService"]
-templates = []
+templates = ["forgot/forgot.html", "forgot/reset_password.html", "hooks/reset_link.html", "reset/index.html"]
 models    = ["ResetToken"]
-hooks     = ["auth.login.form_footer", "auth.signup.form_footer"]
-routes    = true
+hooks     = ["auth.login.form_footer", "auth.signup.form_footer", "layout.scripts"]
+routes    = false
